@@ -10,14 +10,23 @@ package com.bridgelabz.userregistration;
 			Matcher matcher = pattern.matcher(firstName);
 			return matcher.matches();
 		}
+		public static boolean checkLastName(String lastName) {
+			Pattern pattern = Pattern.compile("^[a-zA-Z]$");
+			Matcher matcher = pattern.matcher(lastName);
+			return matcher.matches();
+		}
 		
 		public static void main(String[] args) {
 			Scanner scanner = new Scanner(System.in);
 				System.out.println("enter First name :");
 				if(checkFirstName(scanner.nextLine())) System.out.println("valid");
 				else System.out.println("Invalid");
-			
-			
+				
+				System.out.println("enter Last name :");
+				if(checkLastName(scanner.nextLine())) System.out.println("valid");
+				else System.out.println("Invalid");
+				
+				scanner.close();
 		}
 	}
 

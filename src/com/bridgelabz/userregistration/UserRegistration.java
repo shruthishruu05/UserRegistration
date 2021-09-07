@@ -14,10 +14,15 @@ package com.bridgelabz.userregistration;
 			Matcher matcher = pattern.matcher(lastName);
 			return matcher.matches();
 		}
-		public static boolean checkEmail(String email) {
+		public static void checkEmail(String email) {
+			boolean isEmail;
 			Pattern pattern = Pattern.compile("^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$");
 			Matcher matcher = pattern.matcher(email);
-			return matcher.matches();
+			isEmail = matcher.matches();
+			if(checkFirstName(email)) 
+				System.out.println("valid");
+			else 
+				System.out.println("Invalid");
 		}
 		public static boolean checkMobileNumber(String mobileNumber) {
 			Pattern pattern = Pattern.compile("^[0-9]{2}[\s][0-9]{10}$");
@@ -47,10 +52,10 @@ package com.bridgelabz.userregistration;
 				
 				System.out.println("enter email:");
 				String email = scanner.nextLine();
-				if(checkEmail(email)) 
+				/*if(checkEmail(email)) 
 				System.out.println("valid");
 				else 
-					System.out.println("Invalid");
+					System.out.println("Invalid");*/
 				
 				System.out.println("enter mobile number:");
 				String mobileNumber = scanner.nextLine();
@@ -66,6 +71,81 @@ package com.bridgelabz.userregistration;
 				else 
 					System.out.println("Invalid");
 				scanner.close();
-		}
-	}
+				System.out.println(" Valid Emails");
+				
+				email = "abc@bridgelabz.co.in";
+				checkEmail(email);
+				email = "abc@gmail.com.com";
+				checkEmail(email);
+				
+				email = "abc@yahoo.com";
+				checkEmail(email);
+				
+				email = "abc@1.com";
+				checkEmail(email);
+				
+				email = "abc-100@yahoo.com";
+				checkEmail(email);
+				
+				email = "abc.100@yahoo.com";
+				checkEmail(email);
+				
+				email = "abc111@abc.com";
+				checkEmail(email);
+				
+				email = "abc-100@abc.net";
+				checkEmail(email);
+				
+				email = "abc.100@abc.com.au";
+				checkEmail(email);
+				
+				email = "abc+100@gmail.com";
+				checkEmail(email);
+				
+				System.out.println();
 
+				System.out.println("Invalid Emails");
+				
+				email = ".abc@abc.com";
+				checkEmail(email);
+				
+				email = "abc";
+				checkEmail(email);
+
+				email = "abc@.com.my";
+				checkEmail(email);
+
+				email = "abc@abc@gmail.com";
+				checkEmail(email);
+				
+				email = "abc()*@gmail.com";
+				checkEmail(email);
+
+				email = "abc..2002@gmail.com";
+				checkEmail(email);
+
+				email = "abc.@gmail.com";
+				checkEmail(email);
+
+				email = "abc123@.com";
+				checkEmail(email);
+
+				email = "abc123@.com.com";
+				checkEmail(email);
+
+				email = "abc123@gmail.a";
+				checkEmail(email);
+
+				email = "abc@%*.com";
+				checkEmail(email);
+
+				email = "abc@gmail.com.1a";
+				checkEmail(email);
+
+				email = "abc@gmail.com.aa.au";
+				checkEmail(email);
+			
+			}
+
+		}
+	

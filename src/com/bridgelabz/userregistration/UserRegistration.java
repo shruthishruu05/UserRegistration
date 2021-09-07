@@ -24,7 +24,11 @@ package com.bridgelabz.userregistration;
 			Matcher matcher = pattern.matcher(mobileNumber);
 			return matcher.matches();
 		}
-		
+		public static boolean checkPassword(String password) {
+			Pattern pattern = Pattern.compile("[a-z]{8,}");
+			Matcher matcher = pattern.matcher(password);
+			return matcher.matches();
+		}
 		public static void main(String[] args) {
 			Scanner scanner = new Scanner(System.in);
 				System.out.println("enter First name :");
@@ -51,6 +55,13 @@ package com.bridgelabz.userregistration;
 				System.out.println("enter mobile number:");
 				String mobileNumber = scanner.nextLine();
 				if(checkMobileNumber(mobileNumber)) 
+				System.out.println("valid");
+				else 
+					System.out.println("Invalid");
+				
+				System.out.println("enter  password:");
+				String password = scanner.nextLine();
+				if(checkPassword(password)) 
 				System.out.println("valid");
 				else 
 					System.out.println("Invalid");

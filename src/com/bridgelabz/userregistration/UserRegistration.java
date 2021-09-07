@@ -25,7 +25,7 @@ package com.bridgelabz.userregistration;
 			return matcher.matches();
 		}
 		public static boolean checkPassword(String password) {
-			Pattern pattern = Pattern.compile("^(?=.*[A-Z])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$");
+			Pattern pattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$");
 			Matcher matcher = pattern.matcher(password);
 			return matcher.matches();
 		}

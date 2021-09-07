@@ -4,7 +4,6 @@ package com.bridgelabz.userregistration;
 	import java.util.regex.Pattern;
 
 	public class UserRegistration {
-		
 		public static boolean checkFirstName(String firstName) {
 			Pattern pattern = Pattern.compile("^[a-zA-Z]{3,}$");
 			Matcher matcher = pattern.matcher(firstName);
@@ -16,25 +15,45 @@ package com.bridgelabz.userregistration;
 			return matcher.matches();
 		}
 		public static boolean checkEmail(String email) {
-			Pattern pattern = Pattern.compile("([a-zA-Z][a-zA-Z0-9][a-zA-Z0-9_-]*)(([+_.-][a-zA-Z0-9]*)?)(@[a-zA-Z0-9]+)([.])([a-z]{2,})(([.][a-z]{2,})?)");
+			Pattern pattern = Pattern.compile("^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$");
 			Matcher matcher = pattern.matcher(email);
+			return matcher.matches();
+		}
+		public static boolean checkMobileNumber(String mobileNumber) {
+			Pattern pattern = Pattern.compile("^[0-9]{2}[\s][0-9]{10}$");
+			Matcher matcher = pattern.matcher(mobileNumber);
 			return matcher.matches();
 		}
 		
 		public static void main(String[] args) {
 			Scanner scanner = new Scanner(System.in);
 				System.out.println("enter First name :");
-				if(checkFirstName(scanner.nextLine())) System.out.println("valid");
-				else System.out.println("Invalid");
+				String firstName = scanner.nextLine();
+				if(checkFirstName(firstName)) 
+					System.out.println("valid");
+				else 
+					System.out.println("Invalid");
 				
 				System.out.println("enter Last name :");
-				if(checkLastName(scanner.nextLine())) System.out.println("valid");
-				else System.out.println("Invalid");
+				String lastName = scanner.nextLine();
+				if(checkLastName(lastName)) 
+				System.out.println("valid");
+				else 
+					System.out.println("Invalid");
 				
 				System.out.println("enter email:");
 				String email = scanner.nextLine();
-				if(checkEmail(email)) System.out.println("valid");
-				else System.out.println("Invalid");
+				if(checkEmail(email)) 
+				System.out.println("valid");
+				else 
+					System.out.println("Invalid");
+				
+				System.out.println("enter mobile number:");
+				String mobileNumber = scanner.nextLine();
+				if(checkMobileNumber(mobileNumber)) 
+				System.out.println("valid");
+				else 
+					System.out.println("Invalid");
 				scanner.close();
 		}
 	}
